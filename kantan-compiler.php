@@ -1,7 +1,8 @@
 <?php
 /**
  * Plugin Name: Kantan Compiler
- * Plugin URI: https://github.com/xama5/kantan-compiler
+ * Plugin URI: https://github.com/wp-kantan/kantan-compiler
+ * GitHub Plugin URI: wp-kantan/kantan-compiler
  * Description: WordPress plugin to minify JS and CSS assets.
  * Author: xama5
  * Contributors: Alessandro Carbone, pputzer
