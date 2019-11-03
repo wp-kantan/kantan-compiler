@@ -1,0 +1,27 @@
+name: Build Release
+
+on:
+  release:
+    types: [published, prereleased]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@master
+      - name: Install composer dependencies
+        uses: MilesChou/composer-action@master
+        with:
+          args: install 
+      - name: Archive Release
+        uses: thedoctor0/zip-release@master
+        with:
+          filename: '.github/kantan-compiler.zip'
+          exclusions: '*.git* build'
+      - name: Upload to release
+        uses: JasonEtco/upload-to-release@master
+        with:
+          args: .github/kantan-compiler.zip application/zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
